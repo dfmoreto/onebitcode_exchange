@@ -1,30 +1,43 @@
-<div class="exchange_box">
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 exchange_box">
   <div class="card">
     <div class="card-header text-center">
       Simule sua conversão
     </div>
     <div class="card-block">
       <%= form_tag("/exchange", method: "post", id: "exchange_form") do %>
-        <div class="local_currency">
-          <div class="form-group">
+        <div class="local_currency row">
+          
+          <div class="col-lg-5 col-md-12 col-sm-12 col-xs-12 form-group">
             <p class="title">Moeda Local</p>
             <%= select_tag "currency", options_for_select(currency_select, "BRL"), class: "form-control", id: "currency" %>
           </div>
-          <div class="form-group">
-            <input type="number" name="quantity" id="quantity" class="form-control" placeholder="Quantidade ($10)" step="any" required>
+
+          <div class="col-lg-2 text-center d-lg-block d-md-none" style="margin-top: 2.5em">
+            <button type="button" class="switch_currency btn btn-warning btn-md">
+              <%= fa_icon 'exchange' %>
+            </button>
           </div>
+          
+          <div class="col-md-12 col-sm-12 col-xs-12 d-lg-none d-md-block" align="center">
+            <button type="button" class="switch_currency btn btn-warning btn-md" style="width: 40%">
+              <%= fa_icon 'long-arrow-up' %>
+              <%= fa_icon 'long-arrow-down' %>
+            </button>
+          </div>
+          
+          <div class="col-lg-5 col-md-12 col-sm-12 col-xs-12 form-group">
+            <p class="title">Moeda Pretendida</p>
+            <%= select_tag "currency_destination", options_for_select(currency_select, "EUR"), class: "form-control", id: "currency_destination"%>
+          </div>
+        
         </div>
         <div class="destination_currency">
           <div class="form-group">
-            <p class="title">Moeda Pretendida</p>
-            <%= select_tag "currency_destination", options_for_select(currency_select, "EUR"), class: "form-control", id: "currency_destination"%>
+            <input type="number" name="quantity" id="quantity" class="form-control" placeholder="Quantidade ($10)" step="any" required>
           </div>
           <div class="form-group">
             <input type="text" id="result" name="result" class="form-control" placeholder="Resultado" readonly>
           </div>
-        </div>
-        <div>
-          <button type="submit" class="btn btn-primary btn-exchange col-md-12">CONVERTER</button>
         </div>
       <% end %>
     </div>
