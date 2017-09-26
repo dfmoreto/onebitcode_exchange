@@ -1,6 +1,6 @@
 require 'rails_helper'
  
-RSpec.describe "Exchange Currency Process", :type => :feature do
+RSpec.describe "Exchange Currency Process", :type => :feature, js: true do
   it "exchange value" do
     visit '/'
     within("#exchange_form") do
@@ -8,9 +8,7 @@ RSpec.describe "Exchange Currency Process", :type => :feature do
       select('USD', from: 'currency_destination')
       fill_in 'quantity', with: '10'
     end
-    click_button 'CONVERTER'
  
-    # save_and_open_page
-    expect(page).to have_content("value")
+    expect(find("#result").value).to_not be_nil
   end
 end

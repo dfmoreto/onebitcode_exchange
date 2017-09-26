@@ -48,6 +48,8 @@ group :development, :test do
   gem 'byebug', platform: :mri
   gem 'capybara'
   gem 'rspec-rails', '~> 3.5'
+  gem 'phantomjs'
+  gem 'poltergeist'
 end
 
 group :development do
