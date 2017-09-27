@@ -10,7 +10,7 @@ RSpec.describe HomeController, type: :controller do
   end
 
   
-  describe "GET #exchange" do
+  describe "POST #exchange" do
     before do
       json = JSON.parse(File.read("./spec/fixtures/currency_list.json"))
       @currency, @currency_destination = json['currency_list'].sample(2)
@@ -26,6 +26,29 @@ RSpec.describe HomeController, type: :controller do
       post :exchange, params: {currency: @currency, currency_destination: @currency_destination, quantity: @quantity}
       value = JSON.parse(response.body)['value']
       expect(value.is_a? Numeric).to eq true
+    end
+  end
+
+
+  describe "POST #send_email" do
+    before do
+      json = JSON.parse(File.read("./spec/fixtures/currency_list.json"))
+      @currency, @currency_destination = json['currency_list'].sample(2)
+      @sample_email = "teste@test.com"
+      @quantity = rand(1..9999)
+    end
+
+    it "returns http success" do
+      post :send_email, params: { email: @sample_email, currency: @currency, 
+                                  currency_destination: @currency_destination, quantity: @quantity  }
+      expect(response).to have_http_status(:success)
+    end
+
+    it "must send email with currency exchange" do
+      expect {
+       post :send_email, params: { email: @sample_email, currency: @currency, 
+                                  currency_destination: @currency_destination, quantity: @quantity  }
+      }.to change { ActionMailer::Base.deliveries.count }.by(1)
     end
   end
 
