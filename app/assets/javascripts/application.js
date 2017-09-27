@@ -15,4 +15,12 @@
 //= require turbolinks
 //= require tether
 //= require bootstrap
+//= require select2
 //= require_tree .
+
+
+$(document).ready(function(){
+  $(".acts_as_select2").select2({
+    theme: "bootstrap"
+  });
+});

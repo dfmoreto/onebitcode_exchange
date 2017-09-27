@@ -23,5 +23,6 @@ $(document).ready ->
     currencyVal = $("#currency").val()
     $("#currency").val($("#currency_destination").val())
     $("#currency_destination").val(currencyVal)
+    $("#currency, #currency_destination").trigger("change");
     convert()
 

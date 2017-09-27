@@ -42,6 +42,7 @@ end
 gem 'bootstrap', '~> 4.0.0.alpha3'
 gem 'rest-client'
 gem 'font-awesome-rails'
+gem 'select2-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
