@@ -40,6 +40,7 @@ source "https://rails-assets.org" do
 end
 
 gem 'bootstrap', '~> 4.0.0.alpha3'
+gem 'popper_js'
 gem 'rest-client'
 gem 'font-awesome-rails'
 gem 'select2-rails'
