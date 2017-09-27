@@ -40,6 +40,11 @@
           </div>
         </div>
       <% end %>
+      <button type="button" class="btn btn-primary" id="open_email_card" data-toggle="modal" data-target="#email_modal" disabled>
+        Enviar Conversão por Email
+      </button>
     </div>
   </div>
 </div>
+
+<%= render "shared/send_email_card" %>

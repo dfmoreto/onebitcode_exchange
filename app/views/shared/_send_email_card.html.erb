@@ -1,0 +1,17 @@
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="email_container" style="display: none">
+  <div class="card">
+    <div class="card-header text-center">
+      Enviar Conversão por Email
+    </div>
+    <div class="card-block">
+      <div class="row">
+        <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 form-group">
+          <%= email_field_tag :email, "", id: "email", class: "form-control", placeholder: "Email" %>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+          <button class="btn btn-primary btn-md pull-right" type="button" id="send_email">Enviar!</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
