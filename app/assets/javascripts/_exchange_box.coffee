@@ -21,7 +21,7 @@ $(document).ready ->
   $("#currency, #currency_destination").change ->
     convert()
 
-  $("#quantity").keydown ->
+  $("#quantity").keyup ->
     convert()
 
   $(".switch_currency").click ->
